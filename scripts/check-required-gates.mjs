@@ -4,7 +4,26 @@
 // This is what makes the optional packs physics instead of a recipe someone
 // has to remember to follow.
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
+
+// Fail closed until first-time setup has run — but never on the template repo itself
+// (identified by its remote). A fresh clone carries .needs-setup; `pnpm setup` removes it.
+function isCanonicalTemplate() {
+  try {
+    const url = execFileSync('git', ['config', '--get', 'remote.origin.url'], {
+      encoding: 'utf8',
+    }).trim();
+    return /[:/]mlembke1\/ts-physics-template(\.git)?$/i.test(url);
+  } catch {
+    return false;
+  }
+}
+if (existsSync('.needs-setup') && !isCanonicalTemplate()) {
+  console.error('This project has not been set up yet. Run:  pnpm setup');
+  console.error('(it decides: name, solo or team, what you are building, license)');
+  process.exit(1);
+}
 
 const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
 const deps = { ...pkg.dependencies, ...pkg.devDependencies };

@@ -28,7 +28,9 @@
     "sbom",
     "AGENTS",
     "mlembke",
-    "unbypassable"
+    "unbypassable",
+    "CODEOWNERS",
+    "readline"
   ],
   "ignorePaths": ["node_modules/**", "dist/**", "coverage/**", "pnpm-lock.yaml", "*.log"]
 }

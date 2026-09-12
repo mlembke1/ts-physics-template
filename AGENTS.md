@@ -1,5 +1,13 @@
 # Agent instructions
 
+## First-time setup
+
+If a `.needs-setup` file exists, this project has not been configured yet — run `pnpm setup`.
+It needs decisions only the user can make: solo or team, what is being built, the project name,
+the license. **Never guess these.** Run non-interactively, `pnpm setup` stops and lists them —
+ask the user, then re-run with the answers as flags (e.g. `pnpm setup --name=my-app --team=solo
+--app=web --license=proprietary`). `pnpm verify` will not pass until setup has run.
+
 ## Definition of done
 
 A change is done ONLY when `pnpm verify` passes with zero errors.
