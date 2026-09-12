@@ -23,6 +23,8 @@
     "mutation": "stryker run",
     "audit": "pnpm audit --audit-level=moderate",
     "sbom": "FETCH_LICENSE=false pnpm dlx @cyclonedx/cdxgen@latest -t js . -o sbom.cdx.json",
+    "setup": "node scripts/setup.mjs",
+    "postinstall": "node scripts/setup.mjs --auto",
     "verify": "pnpm typecheck && pnpm typecov && pnpm lint && pnpm format:check && pnpm arch && pnpm require:check && pnpm deadcode && pnpm spell && pnpm license:check && pnpm test"
   },
   "pnpm": {

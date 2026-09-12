@@ -1,0 +1,8 @@
+This project was created from ts-physics-template and hasn't run first-time setup yet.
+
+Run `pnpm setup`. It also runs automatically on `pnpm install` when you're at a
+terminal. It asks who's working on this (solo/team), what you're building, the
+project name, and the license — then wires everything up accordingly.
+
+This file is deleted once setup completes. Until then, `pnpm verify` refuses to pass,
+so setup can't be silently skipped.
