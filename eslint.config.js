@@ -18,6 +18,9 @@ export default tseslint.config(
     ignores: [
       'dist/**',
       'coverage/**',
+      'reports/**',
+      '.stryker-tmp/**',
+      'scripts/**',
       'node_modules/**',
       '.dependency-cruiser.cjs',
       '**/*.config.*',

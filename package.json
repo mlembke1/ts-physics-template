@@ -17,21 +17,30 @@
     "arch": "depcruise src",
     "deadcode": "knip",
     "spell": "cspell --no-progress --gitignore \"**/*.{ts,tsx,js,mjs,cjs,md}\"",
+    "license:check": "node scripts/check-licenses.mjs",
     "test": "vitest run --coverage",
-    "verify": "pnpm typecheck && pnpm typecov && pnpm lint && pnpm format:check && pnpm arch && pnpm deadcode && pnpm spell && pnpm test"
+    "mutation": "stryker run",
+    "audit": "pnpm audit --audit-level=moderate",
+    "sbom": "FETCH_LICENSE=false pnpm dlx @cyclonedx/cdxgen@latest -t js . -o sbom.cdx.json",
+    "verify": "pnpm typecheck && pnpm typecov && pnpm lint && pnpm format:check && pnpm arch && pnpm deadcode && pnpm spell && pnpm license:check && pnpm test"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
       "lefthook"
-    ]
+    ],
+    "overrides": {
+      "qs@<6.16.0": ">=6.16.0"
+    }
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.2",
     "@commitlint/config-conventional": "21.2.2",
     "@eslint/js": "10.0.1",
+    "@stryker-mutator/core": "10.0.0",
+    "@stryker-mutator/vitest-runner": "10.0.0",
     "@types/node": "24.13.4",
-    "@vitest/coverage-v8": "5.0.0",
+    "@vitest/coverage-v8": "4.1.11",
     "@vitest/eslint-plugin": "1.6.27",
     "cspell": "10.3.0",
     "dependency-cruiser": "18.2.0",
@@ -51,6 +60,6 @@
     "type-coverage": "2.30.1",
     "typescript": "6.0.3",
     "typescript-eslint": "8.70.0",
-    "vitest": "5.0.0"
+    "vitest": "4.1.11"
   }
 }

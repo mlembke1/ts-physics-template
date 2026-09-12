@@ -15,7 +15,9 @@
     "vitest",
     "noreply",
     "esbuild",
-    "nvmrc"
+    "nvmrc",
+    "spdx",
+    "Unlicense"
   ],
   "ignorePaths": ["node_modules/**", "dist/**", "coverage/**", "pnpm-lock.yaml", "*.log"]
 }

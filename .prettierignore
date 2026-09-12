@@ -1,4 +1,6 @@
 dist/
 coverage/
 reports/
+.stryker-tmp/
+sbom.cdx.json
 pnpm-lock.yaml
