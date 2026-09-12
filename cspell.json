@@ -17,7 +17,14 @@
     "esbuild",
     "nvmrc",
     "spdx",
-    "Unlicense"
+    "Unlicense",
+    "zod",
+    "valibot",
+    "arktype",
+    "changesets",
+    "svelte",
+    "jsx",
+    "a11y"
   ],
   "ignorePaths": ["node_modules/**", "dist/**", "coverage/**", "pnpm-lock.yaml", "*.log"]
 }

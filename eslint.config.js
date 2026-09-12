@@ -1,5 +1,6 @@
 // Max-strict flat config. Every plugin starts at its strictest preset;
 // an individual rule is relaxed ONLY with a real false-positive in hand.
+import { createRequire } from 'node:module';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import unicorn from 'eslint-plugin-unicorn';
@@ -12,6 +13,20 @@ import vitest from '@vitest/eslint-plugin';
 import noOnlyTests from 'eslint-plugin-no-only-tests';
 import unusedImports from 'eslint-plugin-unused-imports';
 import prettier from 'eslint-config-prettier';
+
+// Auto-arming packs: an ESLint-based pack activates the instant its plugin is
+// installed — no config edit required. The required-gates check
+// (scripts/check-required-gates.mjs) is what forces the install when the
+// project's shape demands it. Install *is* wiring.
+const require = createRequire(import.meta.url);
+function optionalPack(spec, build) {
+  try {
+    const mod = require(spec);
+    return [build(mod.default ?? mod)];
+  } catch {
+    return [];
+  }
+}
 
 export default tseslint.config(
   {
@@ -62,5 +77,10 @@ export default tseslint.config(
       'no-only-tests/no-only-tests': 'error',
     },
   },
+  // Web pack (accessibility) — active only when eslint-plugin-jsx-a11y is installed.
+  ...optionalPack('eslint-plugin-jsx-a11y', (a11y) => ({
+    files: ['**/*.{jsx,tsx}'],
+    ...a11y.flatConfigs.recommended,
+  })),
   prettier,
 );

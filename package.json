@@ -15,6 +15,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "arch": "depcruise src",
+    "require:check": "node scripts/check-required-gates.mjs",
     "deadcode": "knip",
     "spell": "cspell --no-progress --gitignore \"**/*.{ts,tsx,js,mjs,cjs,md}\"",
     "license:check": "node scripts/check-licenses.mjs",
@@ -22,7 +23,7 @@
     "mutation": "stryker run",
     "audit": "pnpm audit --audit-level=moderate",
     "sbom": "FETCH_LICENSE=false pnpm dlx @cyclonedx/cdxgen@latest -t js . -o sbom.cdx.json",
-    "verify": "pnpm typecheck && pnpm typecov && pnpm lint && pnpm format:check && pnpm arch && pnpm deadcode && pnpm spell && pnpm license:check && pnpm test"
+    "verify": "pnpm typecheck && pnpm typecov && pnpm lint && pnpm format:check && pnpm arch && pnpm require:check && pnpm deadcode && pnpm spell && pnpm license:check && pnpm test"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
