@@ -24,7 +24,11 @@
     "changesets",
     "svelte",
     "jsx",
-    "a11y"
+    "a11y",
+    "sbom",
+    "AGENTS",
+    "mlembke",
+    "unbypassable"
   ],
   "ignorePaths": ["node_modules/**", "dist/**", "coverage/**", "pnpm-lock.yaml", "*.log"]
 }
