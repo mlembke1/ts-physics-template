@@ -1,0 +1,21 @@
+# Fast local gates. The full `pnpm verify` is the real enforcement (CI + merge gate);
+# these hooks just give quick feedback and are bypassable with --no-verify.
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: '*.{ts,tsx,js,mjs,cjs,md,json,yml,yaml}'
+      run: pnpm exec prettier --check {staged_files}
+    lint:
+      glob: '*.{ts,tsx,js,mjs,cjs}'
+      run: pnpm exec eslint --max-warnings 0 --no-warn-ignored {staged_files}
+
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm exec commitlint --edit {1}
+
+pre-push:
+  commands:
+    verify:
+      run: pnpm verify

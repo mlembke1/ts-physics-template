@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "clamp",
+    "depcruise",
+    "typecov",
+    "tseslint",
+    "sonarjs",
+    "lefthook",
+    "commitlint",
+    "knip",
+    "cspell",
+    "unicorn",
+    "vitest",
+    "noreply",
+    "esbuild",
+    "nvmrc"
+  ],
+  "ignorePaths": ["node_modules/**", "dist/**", "coverage/**", "pnpm-lock.yaml", "*.log"]
+}

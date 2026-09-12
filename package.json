@@ -1,0 +1,56 @@
+{
+  "name": "ts-physics-template",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "typecov": "type-coverage --strict --at-least 100",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "arch": "depcruise src",
+    "deadcode": "knip",
+    "spell": "cspell --no-progress --gitignore \"**/*.{ts,tsx,js,mjs,cjs,md}\"",
+    "test": "vitest run --coverage",
+    "verify": "pnpm typecheck && pnpm typecov && pnpm lint && pnpm format:check && pnpm arch && pnpm deadcode && pnpm spell && pnpm test"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "lefthook"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "21.2.2",
+    "@commitlint/config-conventional": "21.2.2",
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.13.4",
+    "@vitest/coverage-v8": "5.0.0",
+    "@vitest/eslint-plugin": "1.6.27",
+    "cspell": "10.3.0",
+    "dependency-cruiser": "18.2.0",
+    "eslint": "10.10.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-n": "18.3.0",
+    "eslint-plugin-no-only-tests": "3.4.0",
+    "eslint-plugin-promise": "7.3.0",
+    "eslint-plugin-regexp": "3.3.0",
+    "eslint-plugin-security": "4.0.1",
+    "eslint-plugin-sonarjs": "4.2.0",
+    "eslint-plugin-unicorn": "74.0.0",
+    "eslint-plugin-unused-imports": "4.4.1",
+    "knip": "6.35.1",
+    "lefthook": "2.1.12",
+    "prettier": "3.9.6",
+    "type-coverage": "2.30.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.0",
+    "vitest": "5.0.0"
+  }
+}
