@@ -5,5 +5,5 @@
   "coverageAnalysis": "off",
   "reporters": ["clear-text", "progress"],
   "mutate": ["src/**/*.ts", "!src/**/*.d.ts", "!src/index.ts"],
-  "thresholds": { "high": 90, "low": 80, "break": 70 }
+  "thresholds": { "high": 90, "low": 80, "break": 80 }
 }

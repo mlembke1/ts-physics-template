@@ -1,0 +1,12 @@
+# Floor files — the merge-critical gates. `--team=team` adds an owner and turns
+# on required code-owner review in the ruleset.
+package.json
+pnpm-lock.yaml
+eslint.config.js
+vitest.config.ts
+stryker.conf.json
+.dependency-cruiser.cjs
+knip.json
+tsconfig.json
+scripts/
+.github/

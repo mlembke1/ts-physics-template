@@ -17,5 +17,12 @@ describe('clamp', () => {
 
   it('throws when min exceeds max', () => {
     expect(() => clamp(1, 10, 0)).toThrow(RangeError);
+    expect(() => clamp(1, 10, 0)).toThrow('min must not exceed max');
+  });
+
+  it('allows min equal to max and returns that bound', () => {
+    expect(clamp(10, 10, 10)).toBe(10);
+    expect(clamp(3, 10, 10)).toBe(10);
+    expect(clamp(20, 10, 10)).toBe(10);
   });
 });

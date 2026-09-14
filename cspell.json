@@ -30,7 +30,19 @@
     "mlembke",
     "unbypassable",
     "CODEOWNERS",
-    "readline"
+    "readline",
+    "bootstrap",
+    "gitleaks",
+    "dependabot",
+    "ruleset",
+    "rulesets",
+    "checksum",
+    "mothership",
+    "Stryker",
+    "sha",
+    "unconfigured",
+    "bypassable",
+    "deadcode"
   ],
   "ignorePaths": ["node_modules/**", "dist/**", "coverage/**", "pnpm-lock.yaml", "*.log"]
 }

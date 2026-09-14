@@ -1,5 +1,5 @@
 {
-  "entry": ["src/index.ts", "tests/**/*.test.ts"],
-  "project": ["src/**/*.ts"],
-  "ignoreDependencies": ["eslint-plugin-jsx-a11y"]
+  "entry": ["src/index.ts", "tests/**/*.test.ts", "scripts/*.mjs"],
+  "project": ["src/**/*.ts", "scripts/**/*.mjs"],
+  "ignoreBinaries": ["size-limit", "changeset"]
 }

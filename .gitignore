@@ -6,3 +6,4 @@ reports/
 sbom.cdx.json
 *.log
 .DS_Store
+.mothership
