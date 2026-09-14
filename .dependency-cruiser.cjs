@@ -18,9 +18,10 @@ module.exports = {
     {
       name: 'domain-is-pure',
       severity: 'error',
-      comment: 'domain may not import application or infrastructure',
+      comment:
+        'domain may not import anything else under src (application, infrastructure, utils, …)',
       from: { path: '^src/domain' },
-      to: { path: '^src/(application|infrastructure)' },
+      to: { path: '^src/', pathNot: '^src/domain' },
     },
     {
       name: 'application-off-infra',
