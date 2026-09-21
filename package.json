@@ -50,7 +50,7 @@
     "@vitest/coverage-v8": "4.1.11",
     "@vitest/eslint-plugin": "1.6.27",
     "cspell": "10.3.0",
-    "dependency-cruiser": "18.2.0",
+    "dependency-cruiser": "18.3.1",
     "eslint": "10.10.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-n": "18.3.0",
